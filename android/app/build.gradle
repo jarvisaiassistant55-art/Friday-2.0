@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.friday_ai_2"
-        minSdk = 23
+        minSdkVersion = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = 42
         versionName = "4.1.0"
