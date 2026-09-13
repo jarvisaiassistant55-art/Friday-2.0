@@ -4,15 +4,23 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core:1.16.0'
+        force 'androidx.core:core-ktx:1.16.0'
+        force 'androidx.browser:browser:1.8.0'
+    }
+}
+
 android {
     namespace = "com.example.friday_ai_2"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
     defaultConfig {
         applicationId = "com.example.friday_ai_2"
         minSdkVersion = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        targetSdk = 36
         versionCode = 42
         versionName = "4.1.0"
     }
@@ -25,10 +33,6 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-}
-
-kotlin {
-    jvmToolchain(17)
 }
 
 flutter {

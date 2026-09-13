@@ -1,1 +1,57 @@
-import 'package:flutter/material.dart'; import '../widgets/glass_card.dart'; class NotesScreen extends StatelessWidget{const NotesScreen({super.key});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Notes'),actions:[IconButton(onPressed:(){},icon:const Icon(Icons.add))]),body:ListView(padding:const EdgeInsets.all(16),children:const[GlassCard(child:ListTile(leading:Icon(Icons.lightbulb),title:Text('Project Ideas'),subtitle:Text('Build an AI-powered productivity app\nAdd voice assistant feature...'))),GlassCard(child:ListTile(leading:Icon(Icons.flag),title:Text('Daily Goals'),subtitle:Text('Read 20 pages\nWorkout for 30 mins...'))),GlassCard(child:ListTile(leading:Icon(Icons.shopping_cart),title:Text('Shopping List'),subtitle:Text('Milk, Bread, Eggs\nVegetables, Fruits...')))]);}
+import 'package:flutter/material.dart';
+
+import '../widgets/glass_card.dart';
+
+class NotesScreen extends StatelessWidget {
+  const NotesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Notes'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: const [
+          GlassCard(
+            child: ListTile(
+              leading: Icon(Icons.lightbulb),
+              title: Text('Project Ideas'),
+              subtitle: Text(
+                'Build an AI-powered productivity app\n'
+                'Add voice assistant feature...',
+              ),
+            ),
+          ),
+          GlassCard(
+            child: ListTile(
+              leading: Icon(Icons.flag),
+              title: Text('Daily Goals'),
+              subtitle: Text(
+                'Read 20 pages\n'
+                'Workout for 30 mins...',
+              ),
+            ),
+          ),
+          GlassCard(
+            child: ListTile(
+              leading: Icon(Icons.shopping_cart),
+              title: Text('Shopping List'),
+              subtitle: Text(
+                'Milk, Bread, Eggs\n'
+                'Vegetables, Fruits...',
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
