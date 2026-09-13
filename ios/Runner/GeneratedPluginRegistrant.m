@@ -48,12 +48,6 @@
 @import url_launcher_ios;
 #endif
 
-#if __has_include(<volume_controller/VolumeControllerPlugin.h>)
-#import <volume_controller/VolumeControllerPlugin.h>
-#else
-@import volume_controller;
-#endif
-
 @implementation GeneratedPluginRegistrant
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
@@ -64,7 +58,6 @@
   [SpeechToTextPlugin registerWithRegistrar:[registry registrarForPlugin:@"SpeechToTextPlugin"]];
   [TorchLightPlugin registerWithRegistrar:[registry registrarForPlugin:@"TorchLightPlugin"]];
   [URLLauncherPlugin registerWithRegistrar:[registry registrarForPlugin:@"URLLauncherPlugin"]];
-  [VolumeControllerPlugin registerWithRegistrar:[registry registrarForPlugin:@"VolumeControllerPlugin"]];
 }
 
 @end
