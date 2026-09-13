@@ -12,7 +12,26 @@ configurations.all {
     }
 }
 
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file("key.properties")
+
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(
+        new FileInputStream(keystorePropertiesFile)
+    )
+}
+
 android {
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
     namespace = "com.example.friday_ai_2"
     compileSdk = 36
     ndkVersion = flutter.ndkVersion
@@ -35,6 +54,17 @@ android {
     }
 }
 
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
 flutter {
+
     source = "../.."
 }
