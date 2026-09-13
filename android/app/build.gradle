@@ -12,7 +12,6 @@ configurations.all {
     }
 }
 
-
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file("key.properties")
 
@@ -23,6 +22,10 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
+    namespace = "com.example.friday_ai_2"
+    compileSdk = 36
+    ndkVersion = flutter.ndkVersion
+
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
@@ -32,13 +35,9 @@ android {
         }
     }
 
-    namespace = "com.example.friday_ai_2"
-    compileSdk = 36
-    ndkVersion = flutter.ndkVersion
-
     defaultConfig {
         applicationId = "com.example.friday_ai_2"
-        minSdkVersion = flutter.minSdkVersion
+        minSdkVersion flutter.minSdkVersion
         targetSdk = 36
         versionCode = 42
         versionName = "4.1.0"
@@ -52,8 +51,6 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-}
-
 
     buildTypes {
         release {
@@ -65,6 +62,5 @@ android {
 }
 
 flutter {
-
     source = "../.."
 }
